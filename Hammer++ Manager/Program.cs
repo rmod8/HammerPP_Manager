@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hammer___Manager
+namespace HammerPP_Manager
 {
     internal static class Program
     {

@@ -1,4 +1,4 @@
-﻿namespace Hammer___Manager
+﻿namespace HammerPP_Manager
 {
     partial class Form1
     {

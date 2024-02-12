@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hammer___Manager
+namespace HammerPP_Manager
 {
-    public partial class Form1 : Form
+    internal partial class Form1 : HPPM_Form
     {
-        public Form1()
+        internal Form1()
         {
             InitializeComponent();
         }

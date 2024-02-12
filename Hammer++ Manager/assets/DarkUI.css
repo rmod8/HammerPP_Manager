@@ -1,0 +1,203 @@
+﻿* {
+    background-color: #3c3f41;
+    color: #dcdcdc;
+}
+
+.button, .numericupdown, .combobox, .textbox, .richtextbox, .progressbar {
+    background-color: #45494a;
+    border-width: 1px;
+    border-color: #5c5c5c;
+}
+
+.button:hover {
+    background-color: #5f6566;
+}
+
+.button:active {
+    background-color: #2b2b2b;
+}
+
+.button:focus, .numericupdown:focus, .combobox:focus, .textbox:focus, .richtextbox:focus {
+    border-color: #6897bb;
+}
+
+.button:disabled, .numericupdown:disabled, .combobox:disabled, .richtextbox:disabled, .updownbuttons:disabled {
+    background-color: #525252;
+    border-color: #5c5c5c;
+    color: #999999;
+}
+
+.updownbuttons {
+    background-color: #393c3e;
+    color: #5c5c5c;
+}
+
+.updownbuttons:hover {
+    color: #7a8084;
+}
+
+.updownbuttons:active {
+    color: #9fb2c4;
+}
+
+.checkbox .check, .radiobutton .check {
+    border-color: #dcdcdc;
+    border-width: 1px;
+    color: #b2b2b2;
+}
+
+.radiobutton .check {
+    border-radius: 6px;
+}
+
+.checkbox:hover .check, .radiobutton:hover .check {
+    border-color: #6897bb;
+}
+
+.checkbox:focus .check, .radiobutton:focus .check {
+    border-color: #4b6eaf;
+    color: #4b6eaf;
+}
+
+.checkbox:active .check, .radiobutton:active .check {
+    border-color: #7a8084;
+    color: #7a8084;
+    border-width: 1px;
+}
+
+.checkbox:disabled, .radiobutton:disabled {
+    color: #999999;
+}
+
+.checkbox:disabled .check, .radiobutton:disabled .check {
+    border-color: #5c5c5c;
+    color: #999999;
+}
+
+.progressbar .progress {
+    border-color: #5c5c5c;
+    border-width: 1px;
+    background-color: #4b6eaf;
+}
+
+.progressbar:disabled .progress {
+    background-color: #999999;
+}
+
+.toolstrip {
+    border-bottom-width: 1px;
+    border-bottom-color: #333333;
+    border-top-color: #515151;
+    border-top-width: 1px;
+}
+
+.menustrip {
+    border-top-width: 0px;
+}
+
+.toolstrip .item:hover {
+    background-color: #7a8084;
+}
+
+.toolstrip .item:active {
+    background-color: #5c5c5c;
+}
+
+.toolstripseparator {
+    border-width: 1px;
+    border-color: #515151;
+}
+
+.toolstripdropdown {
+    border-width: 1px;
+    border-color: #515151;
+}
+
+.groupbox {
+    border-top-width: 1px;
+    border-top-color: #7a8084;
+}
+
+.groupbox:disabled {
+    border-color: #5c5c5c;
+    color: #999999;
+}
+
+.tabcontrol {
+    background-color: #313335;
+}
+
+.tabcontrol .panel {
+    border-top-width: 2px;
+    border-top-color: #5c5c5c;
+}
+
+.tabcontrol:focus-within .panel {
+    border-top-color: #4b6eaf;
+}
+
+.tabcontrol .tab {
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-top-color: #333333;
+    border-right-color: #333333;
+    background-color: #2b2b2b;
+}
+
+.tabcontrol .tab:hover {
+    background-color: #313335;
+}
+
+.tabcontrol .tab:checked {
+    background-color: #5c5c5c;
+}
+
+.tabcontrol:focus-within .tab:checked {
+    background-color: #4b6eaf;
+}
+
+.listbox, .listview, .treeview, .datagridview {
+    border-width: 1px;
+    border-color: #333333;
+}
+
+.listview .header, .datagridview .header {
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-right-color: #333333;
+    border-bottom-color: #333333;
+}
+
+.listbox .item.even, .listview .item.even, .datagridview .cell.even, .treeview .node.even {
+    background-color: #3c3f41;
+}
+
+.listbox .item.odd, .listview .item.odd, .datagridview .cell.odd, .treeview .node.odd {
+    background-color: #393c3e;
+}
+
+.listbox .item:checked, .listview .item:checked, .datagridview .cell:checked, .treeview .node:checked {
+    background-color: #5c5c5c;
+}
+
+.listbox:focus .item:checked, .listview:focus .item:checked, .datagridview:focus .cell:checked, .treeview:focus .node:checked {
+    background-color: #4b6eaf;
+}
+
+.tooltip {
+    border-width: 1px;
+    border-color: #333333;
+}
+
+.label {
+    color: #bdbdbd;
+}
+
+.label:disabled {
+    color: #dcdcdc;
+}
+
+.textbox:disabled{
+	background-color: #3c3f41;
+    color: #dcdcdc;
+}
