@@ -116,6 +116,13 @@
 .groupbox {
     border-top-width: 1px;
     border-top-color: #7a8084;
+	border-left-width: 1px;
+    border-left-color: #7a8084;
+	border-right-width: 1px;
+    border-right-color: #7a8084;
+	border-bottom-width: 1px;
+    border-bottom-color: #7a8084;
+	background-color: #4c4f52;
 }
 
 .groupbox:disabled {

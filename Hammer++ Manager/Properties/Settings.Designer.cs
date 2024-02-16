@@ -22,5 +22,29 @@ namespace HammerPP_Manager.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SourceSDKBasePath {
+            get {
+                return ((string)(this["SourceSDKBasePath"]));
+            }
+            set {
+                this["SourceSDKBasePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Tag {
+            get {
+                return ((string)(this["Tag"]));
+            }
+            set {
+                this["Tag"] = value;
+            }
+        }
     }
 }

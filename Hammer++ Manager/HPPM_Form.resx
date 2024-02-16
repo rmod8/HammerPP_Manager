@@ -117,41 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="caution" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\sound\caution.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="DarkUI" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\DarkUI.css;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="denied" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\sound\denied.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="gameend" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\image\gameend.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="global" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\image\global.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="hpp16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\image\hpp16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="hpp64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\image\hpp64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="info" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\sound\info.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="light" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\image\light.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="obsolete" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\image\obsolete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sound" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\image\sound.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="success" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\sound\success.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAECAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAALYAtwAAAAAAwADCLK0AqoifAZfVnAKN+ZwCjfmeAZTVqQCliL8AwSwAAAAAsQCwAAAA
+        AAAAAAAAAAAAAAAAAADPANMCrACroowAhv90AGn/egNo/5EIc/+ECWX/fARo/3MAaf+HAIH/qAClosQA
+        xAIAAAAAAAAAALcAuADPANQCoACc3GUAVP9eAEv/YgFL/3IGT/+cDWj/lg5i/3UITv9kAkz/XgBL/2MA
+        Uf+WAJHcxwDGAq4ArQAAAAAAqgCronEAaP9nAFz/aABd/3ECX/+ICWL/tBxz/7Aibv+NC2L/dAJh/2kA
+        Xf9nAF3/bgBk/6IAoqIAAAAAuQC5LI0AhP+GAIT/xgDJ/8YAyP+NA4L/mw1q/50MJv+dDCb/oA5q/4IE
+        cf/HAMj/xgDJ/5EAkf+HAHz/rwCuLKQAoIhgAE7/ggB+/78Awv/AAMH/igN9/4wOU/+dDCb/nQwm/5MQ
+        VP96BWX/wgDD/78Awf+PAI//XwBM/5cAkYikAKTUgQB+/4QAhP+/AMH/wAHA/44Dgf+mD3b/nQwm/50M
+        Jv+rEHT/ggRx/8EBwf+/AMD/kACR/4IAfv+eAJ3UvgDA+r8Awv+/AML/vQC+/78Cu//IB7X/1hKi/50M
+        Jv+dDCb/2BOe/8oItP/AA7r/vQC+/78AwP+/AML/vgDA+r4AwPq/AML/vwDB/78CvP/GB7P/0Q6l/+Aa
+        kf+dDCb/nQwm/+Ibj//UEKP/xwix/8ACu/+/AMD/vwDC/74AwPqmAKbUgQB+/4UAg//EBLz/zgyp/50M
+        Jv+dDCb/nQwm/50MJv+dDCb/nQwm/9IPpv/FBLn/kQCQ/4IAfv+fAJ7UqACliGEAT/+EAX7/xgW6/9QQ
+        o/+dDCb/nQwm/50MJv+dDCb/nQwm/50MJv/ZFZ//xwe3/5EBjf9gAE3/nACWiL0AvSyRAIn/hwCD/8sE
+        wf/XDqv/nQwm/54NJ/+bCyX/mwsm/50MJv+dDCb/2hKo/8wFvv+TAZD/igCB/7QAtCwAAAAArwCwonYA
+        bP9vAlz/hAhe/6odaf/HMnL/2TZ5/9U3dP/JM3L/sSRt/4gKXv9xA13/cgBn/6cAqKIAAAAAugC7AM4A
+        2AKpAKbcbABZ/2kDTP92CE//hg1R/6gTaP+iE2L/iQ5S/3gJT/9qBE3/aQFV/6AAnNzPANQCtQC2AAAA
+        AAAAAAAA0QDZArIAsqKVAI7/egFt/30EZ/+UCXL/hgpl/38FZ/95AWv/kQCJ/64AraLOANQCAAAAAAAA
+        AAAAAAAAAAAAALsAuwAAAAAAwwDFLLQAs4ipAaLVpAKZ+aUCmfmnAaDVsgCwiMIAxSwAAAAAuAC5AAAA
+        AAAAAAAA8A8AAMADAACAAQAAgAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAEAAIAB
+        AADAAwAA8A8AAA==
+</value>
   </data>
 </root>
