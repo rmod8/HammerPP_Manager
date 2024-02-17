@@ -33,6 +33,8 @@
                 case FormType.OpenHammerPPToConfigure:
                 case FormType.NoGamesFoundAuto:
                 case FormType.SDKPathNotSelected:
+                case FormType.HammerPPInstallationInvalid:
+                case FormType.NoInternet:
                     buttonYes.Enabled = false;
                     buttonYes.Hide();
                     buttonNo.Text = "Ok";
@@ -91,8 +93,42 @@
                 case FormType.SDKPathNotSelected:
                     this.Text += "Configuration Issue!";
                     this.labelTitle.Text = "SDK Path not configured!";
-                    this.labelDescription.Text = "Please go to the \"Tools\" drop down box and " +
+                    this.labelDescription.Text = "No Installation has been setup.\n" +
+                        "Please go to the \"Tools\" drop down box and " +
                         "install Hammer++.";
+                    this.Size = new System.Drawing.Size(450, 140);
+                    break;
+
+                case FormType.HPPAlreadyInstalled:
+                    this.Text += "Hammer++ Already Installed!";
+                    this.labelTitle.Text = "Hammer++ Installation Detected!";
+                    this.labelDescription.Text = "Either a full installation or remnant files of a Hammer++ installation\r\nexist in Source SDK Base 2013 Multiplayer's Folder.\n\n" +
+                        "To ensure best compatability, we need to delete both the \n'hammerplusplus.exe' file and 'hammerplusplus' folder.\n\n" +
+                        "Press Yes to delete and continue.\n" +
+                        "Press No to stop the installation.";
+                    this.Size = new System.Drawing.Size(460, 210);
+                    break;
+
+                case FormType.HammerPPInstallationInvalid:
+                    this.Text += "Hammer++ Installation Invalid!";
+                    this.labelTitle.Text = "Hammer++ Installation Invalid!";
+                    this.labelDescription.Text = "The Hammer++ Installation is either damaged or invalid.\n" +
+                        "Please go to the \"Tools\" drop down box and install Hammer++.";
+                    this.Size = new System.Drawing.Size(450, 140);
+                    break;
+
+                case FormType.InstallHPPAlreadyInstalled:
+                    this.Text += "Hammer++ Already Installed!";
+                    this.labelTitle.Text = "Hammer++ Already Installed!";
+                    this.labelDescription.Text = "Hammer++ is already installed, do you want to continue?";
+                    this.Size = new System.Drawing.Size(450, 140);
+                    break;
+
+                case FormType.NoInternet:
+                    this.Text += "Internet Connection Issue!";
+                    this.labelTitle.Text = "Can't Connect to GitHub!";
+                    this.labelDescription.Text = "Hammer++ Manager can't connect to GitHub.com!\n" +
+                        "Check your internet connection or check if GitHub is down.";
                     this.Size = new System.Drawing.Size(450, 140);
                     break;
 

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Media;
+using System.Net;
 using System.Windows.Forms;
 using Gsemac.Forms.Styles.Applicators;
 using Gsemac.Forms.Styles.StyleSheets;
@@ -61,7 +62,19 @@ namespace HammerPP_Manager
             /// <summary>
             /// No games found from autoscan.
             /// </summary>
-            NoGamesFoundAuto
+            NoGamesFoundAuto,
+            /// <summary>
+            /// Hammer++ Installation is not valid.
+            /// </summary>
+            HammerPPInstallationInvalid,
+            /// <summary>
+            /// If the user tries to click on the install button, inform them if they want to continue.
+            /// </summary>
+            InstallHPPAlreadyInstalled,
+            /// <summary>
+            /// No Internet Connection
+            /// </summary>
+            NoInternet
         }
 
         /// <summary>
@@ -289,9 +302,162 @@ namespace HammerPP_Manager
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "HPPM_Form";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ResumeLayout(false);
 
         }
+
+        /// <summary>
+        /// Returns the directory of the installation of the game put in the parameters. Returns null if it can't be found.
+        /// </summary>
+        /// <param name="sourceGame"></param>
+        /// <returns></returns>
+        public static string ScanForGameDirectory(SourceGames.SourceGame sourceGame)
+        {
+            // Check the default places first...
+
+            if (Directory.Exists(@"C:\Program Files (x86)\Steam\steamapps\common\" + sourceGame.GameDirectory) && GameSanityCheck(@"C:\Program Files (x86)\Steam\steamapps\common\" + sourceGame.GameDirectory, sourceGame))
+                return @"C:\Program Files (x86)\Steam\steamapps\common\" + sourceGame.GameDirectory;
+
+            if (Directory.Exists(@"C:\Program Files\Steam\steamapps\common\" + sourceGame.GameDirectory) && GameSanityCheck(@"C:\Program Files\Steam\steamapps\common\" + sourceGame.GameDirectory, sourceGame))
+                return @"C:\Program Files\Steam\steamapps\common\" + sourceGame.GameDirectory;
+
+            // Ok, we couldn't find it on the default C: drive, time to check the other drives...
+
+            DriveInfo[] allDrives = DriveInfo.GetDrives();
+            foreach (DriveInfo drive in allDrives)
+            {
+                // Don't try to access drives which we can't access, like optical drives or RAM.
+                if (!drive.IsReady || (drive.DriveType == DriveType.Ram || drive.DriveType == DriveType.Unknown || drive.DriveType == DriveType.CDRom))
+                    continue;
+
+                // Try to find on root of drive...
+                if (Directory.Exists(drive.Name + @"SteamLibrary\steamapps\common\" + sourceGame.GameDirectory) && GameSanityCheck(drive.Name + @"SteamLibrary\steamapps\common\" + sourceGame.GameDirectory, sourceGame))
+                    return drive.Name + @"SteamLibrary\steamapps\common\" + sourceGame.GameDirectory;
+
+                //Sometimes people put their SteamLibrary folder in another folder, so let's check each folder...
+                string[] folders = Directory.GetDirectories(drive.Name);
+                foreach (string folder in folders)
+                {
+                    if (Directory.Exists(folder + @"\SteamLibrary\steamapps\common\" + sourceGame.GameDirectory) && GameSanityCheck(folder + @"\SteamLibrary\steamapps\common\" + sourceGame.GameDirectory, sourceGame))
+                        return folder + @"\SteamLibrary\steamapps\common\" + sourceGame.GameDirectory;
+                }
+            }
+
+            // If all else fails, return null and hope the caller checks the condition and realises the game doesn't exist.
+            return null;
+        }
+
+        /// <summary>
+        /// Checks if Properties.Settings.Default.SourceSDKBasePath has a Hammer++ installation or an residual files.
+        /// </summary>
+        /// <returns></returns>
+        internal static bool HPPInstallationCheck()
+        {
+            return Directory.Exists(Properties.Settings.Default.SourceSDKBasePath + "\\bin\\hammerplusplus") || File.Exists(Properties.Settings.Default.SourceSDKBasePath + "\\bin\\hammerplusplus.exe");
+        }
+
+        /// <summary>
+        /// Returns true if the device is connected to the internet, false if not.
+        /// </summary>
+        /// <returns></returns>
+        internal static bool CheckInternetConnection()
+        {
+            try
+            {
+                using (var client = new WebClient())
+                using (var stream = client.OpenRead("http://github.com"))
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Returns amount of free space in bytes on the specified drive.
+        /// </summary>
+        /// <param name="driveName"></param>
+        /// <returns></returns>
+        internal long GetTotalFreeSpace(string driveName)
+        {
+            foreach (DriveInfo drive in DriveInfo.GetDrives())
+            {
+                if (drive.IsReady && drive.Name == driveName)
+                {
+                    return drive.AvailableFreeSpace;
+                }
+            }
+            return -1;
+        }
+
     }
+
+    /// <summary>
+    /// Class used for the GitHub API request
+    /// </summary>
+    public class API_Request
+    {
+        public string url { get; set; }
+        public string assets_url { get; set; }
+        public string upload_url { get; set; }
+        public string html_url { get; set; }
+        public string id { get; set; }
+        public API_author author { get; set; }
+        public string node_id { get; set; }
+        public string tag_name { get; set; }
+        public string target_commitish { get; set; }
+        public string name { get; set; }
+        public string draft { get; set; }
+        public string prerelease { get; set; }
+        public string created_at { get; set; }
+        public string published_at { get; set; }
+        public IList<API_release> assets { get; set; }
+        public string tarball_url { get; set; }
+        public string zipball_url { get; set; }
+        public string body { get; set; }
+    }
+
+    public class API_author
+    {
+        public string login { get; set; }
+        public string id { get; set; }
+        public string node_id { get; set; }
+        public string avatar_url { get; set; }
+        public string gravatar_id { get; set; }
+        public string url { get; set; }
+        public string html_url { get; set; }
+        public string followers_url { get; set; }
+        public string following_url { get; set; }
+        public string gists_url { get; set; }
+        public string starred_url { get; set; }
+        public string subscriptions_url { get; set; }
+        public string organizations_url { get; set; }
+        public string repos_url { get; set; }
+        public string events_url { get; set; }
+        public string received_events_url { get; set; }
+        public string type { get; set; }
+        public string site_admin { get; set; }
+    }
+
+    public class API_release
+    {
+        public string url { get; set; }
+        public string id { get; set; }
+        public string node_id { get; set; }
+        public string name { get; set; }
+        public string label { get; set; }
+        public API_author uploader { get; set; }
+        public string content_type { get; set; }
+        public string state { get; set; }
+        public string size { get; set; }
+        public string download_count { get; set; }
+        public string created_at { get; set; }
+        public string updated_at { get; set; }
+        public string browser_download_url { get; set; }
+    }
+
 }

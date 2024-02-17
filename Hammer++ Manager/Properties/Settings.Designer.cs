@@ -38,12 +38,24 @@ namespace HammerPP_Manager.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Tag {
+        public string CurrentTag {
             get {
-                return ((string)(this["Tag"]));
+                return ((string)(this["CurrentTag"]));
             }
             set {
-                this["Tag"] = value;
+                this["CurrentTag"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool HPPInstalled {
+            get {
+                return ((bool)(this["HPPInstalled"]));
+            }
+            set {
+                this["HPPInstalled"] = value;
             }
         }
     }

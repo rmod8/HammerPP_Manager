@@ -16,7 +16,10 @@ namespace HammerPP_Manager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
             Application.Run(new Form_MainWindow());
+
+            //Application.Run(new Form_InfoBox(HPPM_Form.FormType.NoInternet, HPPM_Form.FormIconType.LIGHT, HPPM_Form.FormSoundType.INFO));
         }
     }
 }

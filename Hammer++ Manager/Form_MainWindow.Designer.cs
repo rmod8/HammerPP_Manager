@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_MainWindow));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listboxGames = new System.Windows.Forms.ListBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.buttonInstallHPP = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,7 +44,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.listBox1);
+            this.groupBox1.Controls.Add(this.listboxGames);
             this.groupBox1.Location = new System.Drawing.Point(12, 28);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(286, 169);
@@ -52,27 +52,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Profiles:";
             // 
-            // listBox1
+            // listboxGames
             // 
-            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
-            "Test1",
-            "Test2",
-            "Test3",
-            "Test4",
-            "Test5",
-            "Test6",
-            "Test7",
-            "Test8",
-            "Test9",
-            "Test0"});
-            this.listBox1.Location = new System.Drawing.Point(6, 19);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.ScrollAlwaysVisible = true;
-            this.listBox1.Size = new System.Drawing.Size(274, 143);
-            this.listBox1.TabIndex = 0;
+            this.listboxGames.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listboxGames.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.listboxGames.FormattingEnabled = true;
+            this.listboxGames.Location = new System.Drawing.Point(6, 19);
+            this.listboxGames.Name = "listboxGames";
+            this.listboxGames.ScrollAlwaysVisible = true;
+            this.listboxGames.Size = new System.Drawing.Size(274, 143);
+            this.listboxGames.TabIndex = 0;
             // 
             // toolStrip1
             // 
@@ -100,14 +89,14 @@
             // buttonInstallHPP
             // 
             this.buttonInstallHPP.Name = "buttonInstallHPP";
-            this.buttonInstallHPP.Size = new System.Drawing.Size(180, 22);
+            this.buttonInstallHPP.Size = new System.Drawing.Size(178, 22);
             this.buttonInstallHPP.Text = "Install Hammer++";
             this.buttonInstallHPP.Click += new System.EventHandler(this.buttonInstallHPP_Click);
             // 
             // buttonUpdateHPP
             // 
             this.buttonUpdateHPP.Name = "buttonUpdateHPP";
-            this.buttonUpdateHPP.Size = new System.Drawing.Size(180, 22);
+            this.buttonUpdateHPP.Size = new System.Drawing.Size(178, 22);
             this.buttonUpdateHPP.Text = "Update Hammer++";
             this.buttonUpdateHPP.Click += new System.EventHandler(this.buttonUpdateHPP_Click);
             // 
@@ -171,7 +160,7 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listboxGames;
         private System.Windows.Forms.Button buttonAddProfile;
         private System.Windows.Forms.Button buttonDeleteProfile;
         private System.Windows.Forms.Button buttonEditSources;
