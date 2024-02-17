@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -223,6 +224,36 @@ namespace HammerPP_Manager
             else
             {
                 //Continue
+
+                // Add compile profiles to the Hammer++ Installation
+                List<string> sequencesLines = File.ReadLines(Properties.Settings.Default.SourceSDKBasePath + "\\bin\\hammerplusplus\\hammerplusplus_sequences.cfg").ToList();
+                // Remove closing bracket
+                sequencesLines.RemoveAt(sequencesLines.Count-1);
+
+                foreach(MasterSequence masterSequence in MasterSequence.HPPSequences)
+                {
+                    sequencesLines.Add(masterSequence.sequenceName);
+                    sequencesLines.Add("\t{");
+                    for (int i = 0; i < masterSequence.sequences.Length; i++)
+                    {
+                        sequencesLines.Add("\t\t\""+(i+1)+"\"");
+                        sequencesLines.Add("\t\t{");
+                        sequencesLines.Add(masterSequence.sequences[i].enable);
+                        sequencesLines.Add(masterSequence.sequences[i].specialcmd);
+                        if(masterSequence.sequences[i].run != null)
+                            sequencesLines.Add(masterSequence.sequences[i].run);
+                        sequencesLines.Add(masterSequence.sequences[i].parms);
+                        sequencesLines.Add("\t\t}");
+                    }
+                    sequencesLines.Add("\t}");
+                }
+                sequencesLines.Add("}");
+                using (TextWriter tw = new StreamWriter(Properties.Settings.Default.SourceSDKBasePath + "\\bin\\hammerplusplus\\hammerplusplus_sequences.cfg"))
+                {
+                    foreach (String s in sequencesLines)
+                        tw.WriteLine(s);
+                }
+
                 Properties.Settings.Default.HPPInstalled = true;
                 Properties.Settings.Default.Save();
                 SwitchToWindow(new Form_MainWindow());

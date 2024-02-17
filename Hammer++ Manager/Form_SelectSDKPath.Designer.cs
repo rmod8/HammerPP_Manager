@@ -39,8 +39,6 @@
             // 
             // pictureboxIcon
             // 
-            this.pictureboxIcon.BackColor = System.Drawing.SystemColors.Control;
-            this.pictureboxIcon.ForeColor = System.Drawing.SystemColors.ControlText;
             this.pictureboxIcon.Image = global::HammerPP_Manager.Properties.Resources.light;
             this.pictureboxIcon.Location = new System.Drawing.Point(12, 12);
             this.pictureboxIcon.Name = "pictureboxIcon";
@@ -61,10 +59,8 @@
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
-            this.labelTitle.BackColor = System.Drawing.SystemColors.Control;
             this.labelTitle.Enabled = false;
             this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitle.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelTitle.Location = new System.Drawing.Point(71, 12);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(115, 25);
@@ -108,7 +104,6 @@
             this.Controls.Add(this.labelDescription);
             this.Controls.Add(this.labelTitle);
             this.DoubleBuffered = false;
-            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(0, 0);

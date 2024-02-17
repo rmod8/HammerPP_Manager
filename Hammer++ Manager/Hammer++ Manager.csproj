@@ -264,6 +264,7 @@
     <Compile Include="ReadOnlyTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Sequences.cs" />
     <Compile Include="SourceGames.cs" />
     <EmbeddedResource Include="Form_DownloadWindow.resx">
       <DependentUpon>Form_DownloadWindow.cs</DependentUpon>
