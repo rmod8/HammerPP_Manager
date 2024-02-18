@@ -64,6 +64,10 @@ namespace HammerPP_Manager
             /// </summary>
             NoGamesFoundAuto,
             /// <summary>
+            /// No games found from manual selection.
+            /// </summary>
+            NoGamesFoundManual,
+            /// <summary>
             /// Hammer++ Installation is not valid.
             /// </summary>
             HammerPPInstallationInvalid,
@@ -74,7 +78,11 @@ namespace HammerPP_Manager
             /// <summary>
             /// No Internet Connection
             /// </summary>
-            NoInternet
+            NoInternet,
+            /// <summary>
+            /// Profile Residue Data
+            /// </summary>
+            ProfileResidueData
         }
 
         /// <summary>

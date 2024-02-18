@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using static HammerPP_Manager.Form_DownloadWindow;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace HammerPP_Manager
 {
@@ -15,38 +16,22 @@ namespace HammerPP_Manager
 
             // Visual Studio doesn't want to update it's starting position, so force it.
             CenterToScreen();
+            UpdateProfileListings();
 
-            // Check existing profiles, if theres an installation
-            if (CheckForHPPInstallation())
-            {
-                string[] directories = Directory.GetDirectories(Properties.Settings.Default.SourceSDKBasePath);
 
-                // Convert found folders to just the folder name
-                for (int i = 0; i < directories.Length; i++)
-                {
-                    directories[i] = directories[i].Substring(Properties.Settings.Default.SourceSDKBasePath.Length + 1);
-                    foreach(SourceGames.SourceGame game in SourceGames.SUPPORTED_GAMES)
-                    {
-                        if(game.ProfileNametag == directories[i])
-                        {
-                            // To do, implement profile window
-                            Profiles.Add(game);
-                            listboxGames.Items.Add(game.GameName);
-                            break;
-                        }
-                    }
-                }
-            }
         }
 
         private void buttonAddProfile_Click(object sender, EventArgs e)
         {
             if (!CheckForHPPInstallation()) return;
+            new Form_AddGameProfile(Profiles).ShowDialog();
+            UpdateProfileListings();
         }
 
         private void buttonDeleteProfile_Click(object sender, EventArgs e)
         {
             if (!CheckForHPPInstallation()) return;
+            UpdateProfileListings();
         }
 
         private void buttonEditSources_Click(object sender, EventArgs e)
@@ -55,7 +40,7 @@ namespace HammerPP_Manager
         }
 
         /// <summary>
-        /// Check to make sure an installation exists and that it's valid.
+        /// Check to make sure a Hammer++ Installation and SourceSDK Config exists and that it's valid.
         /// </summary>
         /// <returns></returns>
         private static bool CheckForHPPInstallation(bool showMessage = true)
@@ -85,6 +70,7 @@ namespace HammerPP_Manager
             SwitchToWindow(new Form_SelectSDKPath());
         }
 
+        /* Update button, might implement later
         private void buttonUpdateHPP_Click(object sender, EventArgs e)
         {
             if (!CheckForHPPInstallation()) return;
@@ -100,6 +86,51 @@ namespace HammerPP_Manager
             //Download tag and check it with current version
             //If the tag is not the same, bring them to the download window but with the isUpdate bool set to true
 
+        }
+        */
+
+        /// <summary>
+        /// Finds folders in the Source SDK Base 2013 folder, and profiles them if their folder name
+        /// matches the folder name of a source game.
+        /// Examples: hpp-gmod == Garry's Mod.
+        ///           hpp-fof == Fistful of Frags.
+        /// </summary>
+        private void UpdateProfileListings()
+        {
+            this.Enabled = false;
+
+            //If SDKBase is configured and Hammer++ installed
+            if (CheckForHPPInstallation(false))
+            {
+                // Clear lists
+                Profiles = new List<SourceGames.SourceGame>();
+
+                // Get directories in SDK Base Folder
+                string[] directories = Directory.GetDirectories(Properties.Settings.Default.SourceSDKBasePath);
+
+                // For each folder...
+                for (int i = 0; i < directories.Length; i++)
+                {
+                    // Convert found folder paths to just the folder name
+                    directories[i] = directories[i].Substring(Properties.Settings.Default.SourceSDKBasePath.Length + 1);
+
+                    // For Each supported game...
+                    foreach (SourceGames.SourceGame game in SourceGames.SUPPORTED_GAMES)
+                    {
+                        //Check if it's ProfileNameTag matches the folder name
+                        if (game.ProfileNametag == directories[i])
+                        {
+                            //If so, add it to both the profile list and the visual list
+                            Profiles.Add(game);
+                            break;
+                        }
+                    }
+                }
+
+                // Add profiles list to the visual listbox
+                listboxGames.DataSource = Profiles;
+            }
+            this.Enabled = true;
         }
 
         

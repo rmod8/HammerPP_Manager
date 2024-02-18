@@ -35,7 +35,6 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.buttonInstallHPP = new System.Windows.Forms.ToolStripMenuItem();
-            this.buttonUpdateHPP = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.buttonCredits = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonLicense = new System.Windows.Forms.ToolStripMenuItem();
@@ -100,8 +99,7 @@
             // 
             this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.buttonInstallHPP,
-            this.buttonUpdateHPP});
+            this.buttonInstallHPP});
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
@@ -111,16 +109,9 @@
             // buttonInstallHPP
             // 
             this.buttonInstallHPP.Name = "buttonInstallHPP";
-            this.buttonInstallHPP.Size = new System.Drawing.Size(180, 22);
+            this.buttonInstallHPP.Size = new System.Drawing.Size(171, 22);
             this.buttonInstallHPP.Text = "Install Hammer++";
             this.buttonInstallHPP.Click += new System.EventHandler(this.buttonInstallHPP_Click);
-            // 
-            // buttonUpdateHPP
-            // 
-            this.buttonUpdateHPP.Name = "buttonUpdateHPP";
-            this.buttonUpdateHPP.Size = new System.Drawing.Size(180, 22);
-            this.buttonUpdateHPP.Text = "Update Hammer++";
-            this.buttonUpdateHPP.Click += new System.EventHandler(this.buttonUpdateHPP_Click);
             // 
             // toolStripDropDownButton2
             // 
@@ -205,7 +196,6 @@
         private System.Windows.Forms.Button buttonEditSources;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.ToolStripMenuItem buttonInstallHPP;
-        private System.Windows.Forms.ToolStripMenuItem buttonUpdateHPP;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
         private System.Windows.Forms.ToolStripMenuItem buttonCredits;
         private System.Windows.Forms.ToolStripMenuItem buttonLicense;

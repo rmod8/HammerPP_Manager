@@ -32,9 +32,11 @@
                 case FormType.GamePathNotFoundAuto:
                 case FormType.OpenHammerPPToConfigure:
                 case FormType.NoGamesFoundAuto:
+                case FormType.NoGamesFoundManual:
                 case FormType.SDKPathNotSelected:
                 case FormType.HammerPPInstallationInvalid:
                 case FormType.NoInternet:
+                case FormType.ProfileAlreadyInstalled:
                     buttonYes.Enabled = false;
                     buttonYes.Hide();
                     buttonNo.Text = "Ok";
@@ -90,6 +92,14 @@
                     this.Size = new System.Drawing.Size(585, 160);
                     break;
 
+                case FormType.NoGamesFoundManual:
+                    this.Text += "No Games Found!";
+                    this.labelTitle.Text = "Failed to verify any Source Games!";
+                    this.labelDescription.Text = "No valid Source Games were found!\n" +
+                        "Ensure the Source Game you want to add has had it's files validated.";
+                    this.Size = new System.Drawing.Size(520, 150);
+                    break;
+
                 case FormType.SDKPathNotSelected:
                     this.Text += "Configuration Issue!";
                     this.labelTitle.Text = "SDK Path not configured!";
@@ -129,6 +139,21 @@
                     this.labelTitle.Text = "Can't Connect to GitHub!";
                     this.labelDescription.Text = "Hammer++ Manager can't connect to GitHub.com!\n" +
                         "Check your internet connection or check if GitHub is down.";
+                    this.Size = new System.Drawing.Size(450, 140);
+                    break;
+
+                case FormType.ProfileAlreadyInstalled:
+                    this.Text += "Profile Already Added!";
+                    this.labelTitle.Text = "Profile Already Added!";
+                    this.labelDescription.Text = "This game has already been added.";
+                    this.Size = new System.Drawing.Size(375, 125);
+                    break;
+
+                case FormType.ProfileResidueData:
+                    this.labelTitle.Text = "Residual Files Found!";
+                    this.labelTitle.Text = "Dirty Profile Detected!";
+                    this.labelDescription.Text = "A broken profile relating to this game has been found.\nDo you wish to delete this broken profile and install a fresh profile?";
+                    buttonYes.Text = "Clean Up";
                     this.Size = new System.Drawing.Size(450, 140);
                     break;
 

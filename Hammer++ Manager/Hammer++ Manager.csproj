@@ -232,11 +232,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form_AddGameProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_AddGameProfile.Designer.cs">
+      <DependentUpon>Form_AddGameProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_DownloadWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form_DownloadWindow.Designer.cs">
       <DependentUpon>Form_DownloadWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_SelectFoundGames.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_SelectFoundGames.Designer.cs">
+      <DependentUpon>Form_SelectFoundGames.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_SelectSDKPath.cs">
       <SubType>Form</SubType>
@@ -266,8 +278,14 @@
     </Compile>
     <Compile Include="Sequences.cs" />
     <Compile Include="SourceGames.cs" />
+    <EmbeddedResource Include="Form_AddGameProfile.resx">
+      <DependentUpon>Form_AddGameProfile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_DownloadWindow.resx">
       <DependentUpon>Form_DownloadWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_SelectFoundGames.resx">
+      <DependentUpon>Form_SelectFoundGames.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_SelectSDKPath.resx">
       <DependentUpon>Form_SelectSDKPath.cs</DependentUpon>

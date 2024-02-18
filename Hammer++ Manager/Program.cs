@@ -19,7 +19,8 @@ namespace HammerPP_Manager
 
             Application.Run(new Form_MainWindow());
 
-            //Application.Run(new Form_InfoBox(HPPM_Form.FormType.NoInternet, HPPM_Form.FormIconType.LIGHT, HPPM_Form.FormSoundType.INFO));
+            //This is used to test how dialog boxes are displayed. Uncomment this and comment the MainWindow to debug InfoBoxs.
+            //Application.Run(new Form_InfoBox(HPPM_Form.FormType.NoGamesFoundManual, HPPM_Form.FormIconType.LIGHT, HPPM_Form.FormSoundType.INFO));
         }
     }
 }
