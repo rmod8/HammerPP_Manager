@@ -23,7 +23,6 @@ namespace HammerPP_Manager
 
         private void buttonAddProfile_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
             if (!CheckForHPPInstallation()) return;
             new Form_AddGameProfile(Profiles).ShowDialog();
             UpdateProfileListings();
