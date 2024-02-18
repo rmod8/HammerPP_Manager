@@ -23,6 +23,7 @@ namespace HammerPP_Manager
 
         private void buttonAddProfile_Click(object sender, EventArgs e)
         {
+            throw new NotImplementedException();
             if (!CheckForHPPInstallation()) return;
             new Form_AddGameProfile(Profiles).ShowDialog();
             UpdateProfileListings();
@@ -31,12 +32,85 @@ namespace HammerPP_Manager
         private void buttonDeleteProfile_Click(object sender, EventArgs e)
         {
             if (!CheckForHPPInstallation()) return;
+            if (listboxGames.SelectedIndex == -1) return;
+            SourceGames.SourceGame game = Profiles[listboxGames.SelectedIndex];
+
+            if (!new Form_InfoBox(FormType.DeleteProfile, FormIconType.LIGHT, FormSoundType.CAUTION, game).ShowDialog()) return;
+
+            this.Enabled = false;
+
+            bool DirectoryAlreadyExists = false;
+            bool ConfigEntryAlreadyExists = false;
+
+            if (Directory.Exists(Properties.Settings.Default.SourceSDKBasePath + "\\" + game.ProfileNametag))
+                DirectoryAlreadyExists = true;
+
+            List<string> GameConfigLines = GetGameConfigLines();
+            for (int i = 0; i < GameConfigLines.Count; i++)
+            {
+                if (GameConfigLines[i] == "\t\t\"" + game.GameName + "\"")
+                {
+                    ConfigEntryAlreadyExists = true;
+                    break;
+                }
+            }
+            if (DirectoryAlreadyExists || ConfigEntryAlreadyExists)
+            {
+                if (ConfigEntryAlreadyExists)
+                {
+                    for (int i = 0; i < GameConfigLines.Count; i++)
+                    {
+                        if (GameConfigLines[i] == "\t\t\"" + game.GameName + "\"")
+                        {
+                            while (GameConfigLines[i] != "\t\t}")
+                                GameConfigLines.RemoveAt(i);
+                            GameConfigLines.RemoveAt(i);
+                            break;
+                        }
+                    }
+
+                    using (FileStream fs = File.Create(Properties.Settings.Default.SourceSDKBasePath + "\\bin\\hammerplusplus\\hammerplusplus_gameconfig.txt.hppmngr"))
+                    {
+                        using (BinaryWriter bw = new BinaryWriter(fs))
+                        {
+                            for (int i = 0; i < GameConfigLines.Count; i++)
+                            {
+                                for (int x = 0; x < GameConfigLines[i].Length; x++)
+                                {
+                                    bw.Write(GameConfigLines[i][x]);
+                                }
+                                bw.Write('\r');
+                                bw.Write('\n');
+                            }
+                        }
+                    }
+
+                    // If the original txt file is open, this prevents misery
+                    File.Copy(Properties.Settings.Default.SourceSDKBasePath + "\\bin\\hammerplusplus\\hammerplusplus_gameconfig.txt.hppmngr", Properties.Settings.Default.SourceSDKBasePath + "\\bin\\hammerplusplus\\hammerplusplus_gameconfig.txt", true);
+                    File.Delete(Properties.Settings.Default.SourceSDKBasePath + "\\bin\\hammerplusplus\\hammerplusplus_gameconfig.txt.hppmngr");
+
+                }
+
+                if (DirectoryAlreadyExists)
+                    if (Directory.Exists(Properties.Settings.Default.SourceSDKBasePath + "\\" + game.ProfileNametag))
+                        Directory.Delete(Properties.Settings.Default.SourceSDKBasePath + "\\" + game.ProfileNametag, true);
+            }
+            else
+            {
+                //to do implement "what the fuck its gone" situation
+            }
+
+            this.Enabled = true;
             UpdateProfileListings();
         }
 
         private void buttonEditSources_Click(object sender, EventArgs e)
         {
             if (!CheckForHPPInstallation()) return;
+            if (listboxGames.SelectedIndex == -1) return;
+            SourceGames.SourceGame game = Profiles[listboxGames.SelectedIndex];
+            new Form_EditSources(game).ShowDialog();
+            UpdateProfileListings();
         }
 
         /// <summary>
@@ -133,6 +207,9 @@ namespace HammerPP_Manager
             this.Enabled = true;
         }
 
-        
+        private void buttonLicense_Click(object sender, EventArgs e)
+        {
+            new Form_TermsAndConditions().ShowDialog();
+        }
     }
 }

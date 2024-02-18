@@ -253,9 +253,6 @@ namespace HammerPP_Manager
                     foreach (String s in sequencesLines)
                         tw.WriteLine(s);
                 }
-
-                Properties.Settings.Default.HPPInstalled = true;
-                Properties.Settings.Default.Save();
                 SwitchToWindow(new Form_MainWindow());
             }
         }

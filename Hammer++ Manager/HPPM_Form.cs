@@ -82,7 +82,11 @@ namespace HammerPP_Manager
             /// <summary>
             /// Profile Residue Data
             /// </summary>
-            ProfileResidueData
+            ProfileResidueData,
+            /// <summary>
+            /// Delete Profile
+            /// </summary>
+            DeleteProfile
         }
 
         /// <summary>
@@ -163,6 +167,112 @@ namespace HammerPP_Manager
                         "\\garrysmod\\garrysmod_002.vpk",
                         "\\garrysmod\\garrysmod_dir.vpk",
                         "\\garrysmod\\gameinfo.txt"
+                        };
+                    break;
+
+                // FORTRESS_FOREVER
+                case "253530":
+                    DirCheckList = new string[]{
+                        "\\bin",
+                        "\\FortressForever",
+                        "\\platform",
+                        "\\hl2"
+                        };
+
+                    FileCheckList = new string[]{
+                        "\\hl2.exe",
+                        "\\FortressForever\\gameinfo.txt"
+                        };
+                    break;
+
+                // HALF_LIFE_2
+                case "220":
+                    DirCheckList = new string[]{
+                        "\\bin",
+                        "\\hl2"
+                        };
+
+                    FileCheckList = new string[]{
+                        "\\hl2.exe",
+                        "\\bin\\vbsp.exe",
+                        "\\bin\\vvis.exe",
+                        "\\bin\\vrad.exe",
+                        "\\hl2\\hl2_misc_000.vpk",
+                        "\\hl2\\hl2_misc_001.vpk",
+                        "\\hl2\\hl2_misc_002.vpk",
+                        "\\hl2\\hl2_misc_003.vpk",
+                        "\\hl2\\hl2_misc_dir.vpk",
+                        "\\hl2\\hl2_pak_000.vpk",
+                        "\\hl2\\hl2_pak_dir.vpk",
+                        "\\hl2\\hl2_sound_misc_000.vpk",
+                        "\\hl2\\hl2_sound_misc_001.vpk",
+                        "\\hl2\\hl2_sound_misc_002.vpk",
+                        "\\hl2\\hl2_sound_misc_dir.vpk",
+                        "\\hl2\\gameinfo.txt"
+                        };
+                    break;
+
+                // HALF_LIFE_2_EP1
+                case "380":
+                    DirCheckList = new string[]{
+                        "\\bin",
+                        "\\episodic"
+                        };
+
+                    FileCheckList = new string[]{
+                        "\\hl2.exe",
+                        "\\bin\\vbsp.exe",
+                        "\\bin\\vvis.exe",
+                        "\\bin\\vrad.exe",
+                        "\\episodic\\ep1_pak_000.vpk",
+                        "\\episodic\\ep1_pak_001.vpk",
+                        "\\episodic\\ep1_pak_002.vpk",
+                        "\\episodic\\ep1_pak_003.vpk",
+                        "\\episodic\\ep1_pak_004.vpk",
+                        "\\episodic\\ep1_pak_005.vpk",
+                        "\\episodic\\ep1_pak_006.vpk",
+                        "\\episodic\\ep1_pak_007.vpk",
+                        "\\episodic\\ep1_pak_008.vpk",
+                        "\\episodic\\ep1_pak_009.vpk",
+                        "\\episodic\\ep1_pak_dir.vpk",
+                        "\\episodic\\gameinfo.txt"
+                        };
+                    break;
+
+                // HALF_LIFE_2_EP2
+                case "420":
+                    DirCheckList = new string[]{
+                        "\\bin",
+                        "\\ep2"
+                        };
+
+                    FileCheckList = new string[]{
+                        "\\hl2.exe",
+                        "\\bin\\vbsp.exe",
+                        "\\bin\\vvis.exe",
+                        "\\bin\\vrad.exe",
+                        "\\ep2\\ep2_pak_000.vpk",
+                        "\\ep2\\ep2_pak_001.vpk",
+                        "\\ep2\\ep2_pak_002.vpk",
+                        "\\ep2\\ep2_pak_003.vpk",
+                        "\\ep2\\ep2_pak_004.vpk",
+                        "\\ep2\\ep2_pak_005.vpk",
+                        "\\ep2\\ep2_pak_006.vpk",
+                        "\\ep2\\ep2_pak_007.vpk",
+                        "\\ep2\\ep2_pak_008.vpk",
+                        "\\ep2\\ep2_pak_009.vpk",
+                        "\\ep2\\ep2_pak_010.vpk",
+                        "\\ep2\\ep2_pak_011.vpk",
+                        "\\ep2\\ep2_pak_012.vpk",
+                        "\\ep2\\ep2_pak_013.vpk",
+                        "\\ep2\\ep2_pak_014.vpk",
+                        "\\ep2\\ep2_pak_015.vpk",
+                        "\\ep2\\ep2_pak_016.vpk",
+                        "\\ep2\\ep2_pak_017.vpk",
+                        "\\ep2\\ep2_pak_018.vpk",
+                        "\\ep2\\ep2_pak_019.vpk",
+                        "\\ep2\\ep2_pak_dir.vpk",
+                        "\\ep2\\gameinfo.txt"
                         };
                     break;
 

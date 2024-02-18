@@ -24,6 +24,8 @@ namespace HammerPP_Manager
             {
                 listBox1.Items.Add(gameList[i].Item1.GameName);
             }
+
+            sfxInfo.Play();
         }
 
         /// <summary>

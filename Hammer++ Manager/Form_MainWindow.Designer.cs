@@ -36,7 +36,6 @@
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.buttonInstallHPP = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.buttonCredits = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonLicense = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listboxGames = new System.Windows.Forms.ListBox();
@@ -90,7 +89,6 @@
             this.toolStripDropDownButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.toolStrip1.Size = new System.Drawing.Size(310, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
@@ -117,7 +115,6 @@
             // 
             this.toolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.buttonCredits,
             this.buttonLicense});
             this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
             this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -125,17 +122,12 @@
             this.toolStripDropDownButton2.Size = new System.Drawing.Size(83, 22);
             this.toolStripDropDownButton2.Text = "Information";
             // 
-            // buttonCredits
-            // 
-            this.buttonCredits.Name = "buttonCredits";
-            this.buttonCredits.Size = new System.Drawing.Size(189, 22);
-            this.buttonCredits.Text = "Credits";
-            // 
             // buttonLicense
             // 
             this.buttonLicense.Name = "buttonLicense";
             this.buttonLicense.Size = new System.Drawing.Size(189, 22);
             this.buttonLicense.Text = "Terms and Conditions";
+            this.buttonLicense.Click += new System.EventHandler(this.buttonLicense_Click);
             // 
             // groupBox1
             // 
@@ -171,6 +163,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.groupBox1);
             this.DoubleBuffered = false;
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(0, 0);
@@ -197,7 +190,6 @@
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.ToolStripMenuItem buttonInstallHPP;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
-        private System.Windows.Forms.ToolStripMenuItem buttonCredits;
         private System.Windows.Forms.ToolStripMenuItem buttonLicense;
     }
 }

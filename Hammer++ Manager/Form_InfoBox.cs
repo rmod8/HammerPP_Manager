@@ -157,6 +157,13 @@
                     this.Size = new System.Drawing.Size(450, 140);
                     break;
 
+                case FormType.DeleteProfile:
+                    this.labelTitle.Text = "Delete Profile.";
+                    this.labelTitle.Text = "Delete profile.";
+                    this.labelDescription.Text = "Are you sure you want to delete " + sourceGame.GameName +"'s profile?";
+                    this.Size = new System.Drawing.Size(450, 140);
+                    break;
+
                 default:
                     break;
             }

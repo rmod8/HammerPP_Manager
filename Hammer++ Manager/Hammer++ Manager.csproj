@@ -238,11 +238,23 @@
     <Compile Include="Form_AddGameProfile.Designer.cs">
       <DependentUpon>Form_AddGameProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_CrashWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_CrashWindow.Designer.cs">
+      <DependentUpon>Form_CrashWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_DownloadWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form_DownloadWindow.Designer.cs">
       <DependentUpon>Form_DownloadWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_EditSources.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_EditSources.Designer.cs">
+      <DependentUpon>Form_EditSources.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_SelectFoundGames.cs">
       <SubType>Form</SubType>
@@ -255,6 +267,12 @@
     </Compile>
     <Compile Include="Form_SelectSDKPath.Designer.cs">
       <DependentUpon>Form_SelectSDKPath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_TermsAndConditions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_TermsAndConditions.Designer.cs">
+      <DependentUpon>Form_TermsAndConditions.cs</DependentUpon>
     </Compile>
     <Compile Include="HPPM_Form.cs">
       <SubType>Form</SubType>
@@ -281,14 +299,23 @@
     <EmbeddedResource Include="Form_AddGameProfile.resx">
       <DependentUpon>Form_AddGameProfile.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_CrashWindow.resx">
+      <DependentUpon>Form_CrashWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_DownloadWindow.resx">
       <DependentUpon>Form_DownloadWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_EditSources.resx">
+      <DependentUpon>Form_EditSources.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_SelectFoundGames.resx">
       <DependentUpon>Form_SelectFoundGames.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_SelectSDKPath.resx">
       <DependentUpon>Form_SelectSDKPath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_TermsAndConditions.resx">
+      <DependentUpon>Form_TermsAndConditions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HPPM_Form.resx">
       <DependentUpon>HPPM_Form.cs</DependentUpon>

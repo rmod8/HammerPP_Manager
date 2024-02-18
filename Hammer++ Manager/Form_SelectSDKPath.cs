@@ -36,6 +36,7 @@ namespace HammerPP_Manager
             if (!GameSanityCheck(Path.GetDirectoryName(openFileDialog.FileName), SourceGames.SOURCESDKBASE2013MP))
             {
                 new Form_InfoBox(FormType.GamePathNotFoundManual, FormIconType.OBSOLETE, FormSoundType.DENIED, SourceGames.SOURCESDKBASE2013MP, new string[] { Path.GetDirectoryName(openFileDialog.FileName) }).ShowDialog();
+                openFileDialog.Dispose();
                 return;
             }
             else
@@ -43,6 +44,7 @@ namespace HammerPP_Manager
                 Properties.Settings.Default.SourceSDKBasePath = Path.GetDirectoryName(openFileDialog.FileName);
                 Properties.Settings.Default.Save();
                 new Form_InfoBox(FormType.GamePathValid, FormIconType.SOUND, FormSoundType.SUCCESS).ShowDialog();
+                openFileDialog.Dispose();
                 SwitchToWindow(new Form_DownloadWindow());
             }
         }

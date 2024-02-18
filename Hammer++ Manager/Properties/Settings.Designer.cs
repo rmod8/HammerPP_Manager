@@ -46,17 +46,5 @@ namespace HammerPP_Manager.Properties {
                 this["CurrentTag"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool HPPInstalled {
-            get {
-                return ((bool)(this["HPPInstalled"]));
-            }
-            set {
-                this["HPPInstalled"] = value;
-            }
-        }
     }
 }

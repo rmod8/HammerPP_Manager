@@ -20,6 +20,7 @@ namespace HammerPP_Manager
         {
             InitializeComponent();
             ExistingProfiles = Profiles;
+            sfxCaution.Play();
         }
 
         private void buttonManual_Click(object sender, EventArgs e)
@@ -67,6 +68,7 @@ namespace HammerPP_Manager
 
                 CheckIfGameProfileAlreadyExists(selectedGame);
             }
+            openFileDialog.Dispose();
         }
 
         private void buttonAuto_Click(object sender, EventArgs e)
@@ -215,6 +217,29 @@ namespace HammerPP_Manager
                         Buffer.Add("\t\t\tgame\t\t\t\"" + Profile.Item2 + "\\garrysmod\\*_dir.vpk\"");
                         break;
 
+                    // FORTRESS_FOREVER
+                    case "253530":
+                        Buffer.Add("\t\t\tgame\t\t\t\"" + Profile.Item2 + "\\FortressForever\"");
+                        break;
+
+                    // HALF_LIFE_2
+                    case "220":
+                        Buffer.Add("\t\t\tgame\t\t\t\"" + Profile.Item2 + "\\hl2\"");
+                        Buffer.Add("\t\t\tgame\t\t\t\"" + Profile.Item2 + "\\hl2\\*_dir.vpk\"");
+                        break;
+
+                    // HALF_LIFE_2_EP1
+                    case "380":
+                        Buffer.Add("\t\t\tgame\t\t\t\"" + Profile.Item2 + "\\episodic\"");
+                        Buffer.Add("\t\t\tgame\t\t\t\"" + Profile.Item2 + "\\episodic\\*_dir.vpk\"");
+                        break;
+
+                    // HALF_LIFE_2_EP2
+                    case "420":
+                        Buffer.Add("\t\t\tgame\t\t\t\"" + Profile.Item2 + "\\ep2\"");
+                        Buffer.Add("\t\t\tgame\t\t\t\"" + Profile.Item2 + "\\ep2\\*_dir.vpk\"");
+                        break;
+
                     // FOF
                     case "265630":
                         Buffer.Add("\t\t\tgame\t\t\t\"" + Profile.Item2 + "\\" + Profile.Item1.GamePath + "\"");
@@ -252,7 +277,7 @@ namespace HammerPP_Manager
             GameConfigBuffer.Add("\t\t\t\"Hammer\"");
             GameConfigBuffer.Add("\t\t\t{");
 
-            string[] FGDS = Directory.GetFiles(Profile.Item2 + Profile.Item1.SDKFolder + "\\bin", "*.fgd", SearchOption.TopDirectoryOnly);
+            string[] FGDS = Directory.GetFiles(Profile.Item2 + Profile.Item1.SDKFolder, "*.fgd", SearchOption.TopDirectoryOnly);
             for (int i = 0; i < FGDS.Length; i++)
             {
                 GameConfigBuffer.Add("\t\t\t\t\"GameData" + i + "\"\t\t\"" + FGDS[i] + "\"");
@@ -268,7 +293,7 @@ namespace HammerPP_Manager
             GameConfigBuffer.Add("\t\t\t\t\"BSP\"\t\t\"" + Properties.Settings.Default.SourceSDKBasePath + "\\bin\\vbsp.exe\"");
             GameConfigBuffer.Add("\t\t\t\t\"Vis\"\t\t\"" + Properties.Settings.Default.SourceSDKBasePath + "\\bin\\vvis.exe\"");
             GameConfigBuffer.Add("\t\t\t\t\"Light\"\t\t\"" + Properties.Settings.Default.SourceSDKBasePath + "\\bin\\vrad.exe\"");
-            GameConfigBuffer.Add("\t\t\t\t\"GameExeDir\"\t\t\"" + Profile.Item2 + Profile.Item1.GamePath + "\"");
+            GameConfigBuffer.Add("\t\t\t\t\"GameExeDir\"\t\t\"" + Profile.Item2 + "\\" + Profile.Item1.GamePath + "\"");
             GameConfigBuffer.Add("\t\t\t\t\"MapDir\"\t\t\"" + Profile.Item2 + "\\" + Profile.Item1.GamePath + "\\mapsrc\"");
             GameConfigBuffer.Add("\t\t\t\t\"BSPDir\"\t\t\"" + Profile.Item2+"\\"+Profile.Item1.GamePath + "\\maps\"");
             GameConfigBuffer.Add("\t\t\t\t\"PrefabDir\"\t\t\"" + Profile.Item2 + "\\bin\\prefabs\"");
@@ -309,6 +334,11 @@ namespace HammerPP_Manager
             File.Delete(Properties.Settings.Default.SourceSDKBasePath + "\\bin\\hammerplusplus\\hammerplusplus_gameconfig.txt.hppmngr");
 
             // Close this form if the selected profile is unique
+            Close();
+        }
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
             Close();
         }
     }

@@ -17,7 +17,18 @@ namespace HammerPP_Manager
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new Form_MainWindow());
+            Form_MainWindow form_MainWindow = new Form_MainWindow();
+            try
+            {
+                Application.Run(form_MainWindow);
+            }
+            catch(Exception ex)
+            {
+                form_MainWindow.Enabled = false;
+                form_MainWindow.Dispose();
+                Application.Run(new Form_CrashWindow(ex));
+            }
+            
 
             //This is used to test how dialog boxes are displayed. Uncomment this and comment the MainWindow to debug InfoBoxs.
             //Application.Run(new Form_InfoBox(HPPM_Form.FormType.NoGamesFoundManual, HPPM_Form.FormIconType.LIGHT, HPPM_Form.FormSoundType.INFO));

@@ -35,6 +35,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelDescription = new System.Windows.Forms.Label();
             this.labelTitle = new System.Windows.Forms.Label();
+            this.buttonClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,11 +99,22 @@
             this.labelTitle.TabIndex = 18;
             this.labelTitle.Text = "New Game Profile";
             // 
+            // buttonClose
+            // 
+            this.buttonClose.Location = new System.Drawing.Point(330, 129);
+            this.buttonClose.Name = "buttonClose";
+            this.buttonClose.Size = new System.Drawing.Size(75, 23);
+            this.buttonClose.TabIndex = 24;
+            this.buttonClose.Text = "Close";
+            this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+            // 
             // Form_AddGameProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(412, 164);
+            this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonAuto);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonManual);
@@ -130,5 +142,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labelDescription;
         private System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.Button buttonClose;
     }
 }
